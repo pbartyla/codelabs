@@ -1,0 +1,267 @@
+$green: #0DBF6D;
+$gray: gray;
+$lightgray:#F9F9FB;
+$white: #fff;
+$purple: #282c4c;
+$blue: #4990e2;
+$black: #000;
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  background-color: $purple;
+  font-family: 'Poppins';
+}
+main{
+  section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+    .card{
+      padding: 15px;
+      border-radius: 5px;
+      background-color: $white;
+      display: flex;
+      flex-direction: column;
+      .heading{
+        width: 100%;
+        padding: 0 0 25px 0;
+        h5{
+          font-weight: 600;
+          color: $blue;
+          text-transform: uppercase;
+        }
+      }
+      .scores{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        column-gap: 30px;
+        .bar{
+          width: 120px;
+          &__wrapper{
+            position: relative;
+            &__inner{
+              position: absolute;
+              top: 45%;
+              right: 50%;
+              margin-left: auto;
+              margin-right: auto;
+              transform: translate(50%, -50%);
+              .current__score{
+                &__wrapper{
+                  .desc{
+                    text-align: center;
+                    color: $gray;
+                    font-weight: 600;
+                    line-height: 1;
+                    font-size: 0.7rem;
+                    margin-bottom: 7px;
+                  }
+                  .score{
+                    text-align: center;
+                    font-size: 30px;
+                    font-weight: 600;
+                    line-height: 1;
+                  }
+                }
+              }
+            }
+            .goal{
+              position: absolute;
+              bottom: 10px;
+              left: 50%;
+              transform: translateX(-50%);
+              &__wrapper{
+                .score{
+                  text-align: center;
+                  font-weight: 700;
+                  font-size: 0.7rem;
+                }
+              }
+            }
+            svg{
+              width: 100%;
+              -webkit-transform: scaleX(-1);
+              transform: scaleX(-1);
+             path{
+              &:nth-child(2){
+                stroke-dasharray: 372, 490;
+                transition: 1s;
+              }
+             }
+            }
+          }
+        }
+        .statistics{
+          max-width: 210px;
+          .content{
+            .desc{
+              p{
+                font-size: 0.8rem;
+                font-weight: 700;
+                color: $gray;
+                
+                .min__left{
+                  color: $black;
+                }
+              }
+            }
+            .boxes{
+              &__wrapper{
+                display: flex;
+                column-gap: 10px;
+                margin-top: 10px;
+                .box{
+                  width: calc(50% - 5px);
+                  height: 60px;
+                  background-color: $lightgray;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  &__inner{
+                    .current__streak, .best__streak{
+                      text-align: center;
+                      .number{
+                        line-height: 1;
+                        font-size: 1rem;
+                        font-weight: 700;
+                        margin-bottom: 6px;
+                      }
+                      .desc{
+                        line-height: 1;
+                        font-size: 0.7rem;
+                        font-weight: 700;
+                        color: $gray;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .leaderboard{
+        .row{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .heading{
+            padding: 0;
+            p{
+              font-size: .8rem;
+              color:  $blue;
+              font-weight: 600;
+            }
+          }
+          .selector{
+            select{
+              background-color: $lightgray;
+              width: 100px; 
+              font-size: 0.8rem;
+              border: solid 1px $lightgray;
+              border-radius: 4px;
+              padding: 6px;
+              &:focus-visible{
+                border: solid 1px $lightgray;
+              } 
+              option{
+
+              }
+            }
+          }
+        }
+        .list{
+          margin-top: 10px;
+          ul{
+            list-style: none;
+            li{
+              box-shadow: 0 3px 6px rgba(0,0,0,0.03), 0 3px 6px rgba(0,0,0,0.0);
+              display: flex;
+              justify-content: space-between;
+              padding: 10px;
+              border-radius: 6px;
+              cursor: pointer;
+              &:hover, &.you{
+                background: $green;
+                .person__data{
+                  color: $white;
+                  .position{
+                    color: $white;
+                    border: 1px solid $white;
+                  }
+                }
+                .score{
+                  color: $white;
+                  svg{
+                    fill: $white;
+                  }
+                }
+              }
+              &.not__done{
+                &:hover{
+                  .person__data{
+                    .position{
+                      border: 1px solid $white;
+                      color: $white;
+                    }
+                  }
+                }
+                .person__data{
+                  .position{
+                    border: 1px solid $gray;
+                    color: $gray;
+                  }
+                }
+                .score{
+                  svg{
+                    fill: $gray
+                  }
+                }
+
+              }
+              .person__data{
+                display: flex;
+                column-gap: 10px;
+                .position{
+                  width: 25px;
+                  height: 25px;
+                  padding: 5px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  border-radius: 50%;
+                  border: 1px solid $green;
+                  color: $green;
+                  font-size: 0.9rem;
+                  font-weight: 600;
+                  color: $gray;
+                }
+                .name{
+                  text-transform: capitalize;
+                  font-weight: 700;
+                }
+              }
+              .score{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: $gray;
+                svg{
+                  width: 20px;
+                  fill: $green;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
